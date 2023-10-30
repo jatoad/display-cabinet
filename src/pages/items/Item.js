@@ -25,8 +25,8 @@ const Item = (props) => {
     const [showEditForm, setShowEditForm] = useState(false);
     const currentUser = useCurrentUser();
     // Should be username. NEED to sort this out
-    //const is_owner = currentUser?.username === owner;
-    const is_owner = currentUser?.owner === owner;
+    const is_owner = currentUser?.username === owner;
+    //const is_owner = currentUser?.owner === owner;
 
     // console.log('is_owner = ', is_owner)
     // console.log('id = ', id)

@@ -9,10 +9,12 @@ import DrawerCreateForm from "./pages/drawers/DrawerCreateForm";
 import DrawerEditForm from "./pages/drawers/DrawerEditForm";
 import DrawerPage from "./pages/drawers/DrawerPage";
 import DrawersPage from "./pages/drawers/DrawersPage";
+import { useCurrentUser } from "./contexts/CurrentUserContext";
 
 function App() {
 
-
+  const currentUser = useCurrentUser();
+  const profile_id = currentUser?.profile_id || "";
 
   return (
     // Context objects passed to child componets 
@@ -26,6 +28,16 @@ function App() {
                 path="/"
                 render={() => (
                   <DrawersPage message="No results found. Adjust the search keyword." />
+                )}
+              />
+              <Route
+                exact
+                path="/liked"
+                render={() => (
+                  <DrawersPage
+                    message="No results found. Adjust the search keyword or like a post."
+                    filter={`likes__owner__profile=${profile_id}&ordering=-likes__created_at&`}
+                  />
                 )}
               />
               <Route exact path="/" render={() => <h1>Home page</h1>} />

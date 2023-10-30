@@ -2,7 +2,7 @@ import { createContext, useContext, useEffect, useMemo, useState } from "react";
 import axios from "axios";
 import { axiosReq, axiosRes } from "../api/axiosDefaults";
 import { useHistory } from "react-router";
-import test_drawer from '../test/test_drawer.json'
+import test_user from '../test/test_user.json'
 
 // Context data allows it to be shared (global) across child components
 export const CurrentUserContext = createContext();
@@ -10,8 +10,6 @@ export const SetCurrentUserContext = createContext();
 
 export const useCurrentUser = () => useContext(CurrentUserContext);
 export const useSetCurrentUser = () => useContext(SetCurrentUserContext);
-
-
 
 export const CurrentUserProvider = ({ children }) => {
 
@@ -25,7 +23,7 @@ export const CurrentUserProvider = ({ children }) => {
     // called once when app starts
     const handleMount = async () => {
         if (testMode) {
-            setCurrentUser(test_drawer)
+            setCurrentUser(test_user)
         } else {
             try {
                 const { data } = await axios.get("dj-rest-auth/user/");

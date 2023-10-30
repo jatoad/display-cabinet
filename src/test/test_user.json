@@ -1,0 +1,13 @@
+{
+    "profile_id": 1,
+    "profile_image": "https://res.cloudinary.com/dxgghjw7c/image/upload/v1/media/images/862MW_small_nufvng",
+    "username": "charlie",
+    "password": "password",
+    "groups": 1,
+    "user_permissions": 1,
+    "is_staff": false,
+    "is_active": true,
+    "is_superuser": false,
+    "last_login": "2 Oct 2023",
+    "date_joined": "09 Oct 2023"
+}
